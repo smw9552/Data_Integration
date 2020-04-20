@@ -1,4 +1,4 @@
-f = open("C:\\Users\\Seomyungwon\\Desktop\\FileSplitTest\\#ChEMBL_Disease_Merge_Output_new_Node.txt", 'r')
+f = open("C:\\Users\\Seomyungwon\\Desktop\\FileSplitTest\\Uniprot_Protein_all_Info.txt", 'r')
 lines = f.readlines()
 f.close()
 
@@ -6,14 +6,14 @@ cnt = 1
 FileName_Num = 1
 
 for line in lines:
-    fileName = "ip_list_" + str(FileName_Num) + ".txt"
+    fileName = "Uniprot_split_" + str(FileName_Num) + ".txt"
 
     fw = open(fileName, "a")
     fw.write(line)
     fw.close()
 
     # 분할하려는 line 숫자를 cnt에 넣어주면 됨
-    if cnt == 5:
+    if cnt == 50000:
         FileName_Num = FileName_Num + 1
         cnt = 0
 
