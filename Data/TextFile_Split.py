@@ -13,7 +13,7 @@ for line in lines:
     fw.close()
 
     # 분할하려는 line 숫자를 cnt에 넣어주면 됨
-    if cnt == 50000:
+    if cnt == 10000:
         FileName_Num = FileName_Num + 1
         cnt = 0
 

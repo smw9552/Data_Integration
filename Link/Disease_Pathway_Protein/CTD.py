@@ -52,18 +52,23 @@ Final_Gene = []
 Final_Uniprot_ID = []
 Final_Uniprot_Accession = []
 
+cnt = 1
+
 for ctd_gene_id in CTD_Gene:
 
-    for info_gene in Info_Uniprot_Gene:
+    print(str("Input data: ") + str(ctd_gene_id))
+    print(str("Input data cnt: ") + str(cnt))
 
-        if str(ctd_gene_id) in str(info_gene):
-            Final_MeSH_ID.append(CTD_MeSH_ID[CTD_Gene.index(ctd_gene_id)])
-            Final_Disease_Name.append(CTD_Disease_Name[CTD_Gene.index(ctd_gene_id)])
-            Final_Pathway_Name.append(CTD_Pathway_Name[CTD_Gene.index(ctd_gene_id)])
-            Final_Pathway_ID.append(CTD_Pathway_ID[CTD_Gene.index(ctd_gene_id)])
-            Final_Gene.append(str(ctd_gene_id))
-            Final_Uniprot_ID.append(Info_Uniprot_ID[Info_Uniprot_Gene.index(info_gene)])
-            Final_Uniprot_Accession.append(Info_Uniprot_Accession[Info_Uniprot_Gene.index(info_gene)])
+    if str(ctd_gene_id) in Info_Uniprot_Gene:
+        Final_MeSH_ID.append(CTD_MeSH_ID[CTD_Gene.index(ctd_gene_id)])
+        Final_Disease_Name.append(CTD_Disease_Name[CTD_Gene.index(ctd_gene_id)])
+        Final_Pathway_Name.append(CTD_Pathway_Name[CTD_Gene.index(ctd_gene_id)])
+        Final_Pathway_ID.append(CTD_Pathway_ID[CTD_Gene.index(ctd_gene_id)])
+        Final_Gene.append(str(ctd_gene_id))
+        Final_Uniprot_ID.append(Info_Uniprot_ID[Info_Uniprot_Gene.index(ctd_gene_id)])
+        Final_Uniprot_Accession.append(Info_Uniprot_Accession[Info_Uniprot_Gene.index(ctd_gene_id)])
+
+    cnt = cnt + 1
 
 print(len(Final_MeSH_ID))
 print(len(Final_Disease_Name))
