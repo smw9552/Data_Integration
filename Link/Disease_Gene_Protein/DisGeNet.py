@@ -1,15 +1,20 @@
-DisGeNet_Association_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
+DisGeNet_Association_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
 DisGeNet_Association_FileName = "DisGeNet_Gene-DB_ID.txt"
 
-DisGeNet_Node_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
+DisGeNet_Node_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
 DisGeNet_Node_FileName = "DisGeNet_Disease_Node.txt"
 
-Uniprot_Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
+Output_gene_mapping_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
+Output_gene_mapping_FileName = "Disease_Gene_DisGeNet.txt"
+
+DisGeNet_Disease_Gene_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
+DisGeNet_Disease_Gene_FileName = "Disease_Gene_DisGeNet.txt"
+
+Uniprot_Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
 Uniprot_Info_FileName = "Uniprot_Protein_all_Info.txt"
 
-Output_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
+Output_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
 Output_FileName = "Disease_Gene_Protein_DisGeNet.txt"
-
 
 f_association = open(DisGeNet_Association_FilePath + DisGeNet_Association_FileName, 'r')
 f_Node = open(DisGeNet_Node_FilePath + DisGeNet_Node_FileName, 'r')
@@ -25,7 +30,7 @@ Info_Uniprot_ID = []
 Info_Uniprot_Accession = []
 Info_Uniprot_Gene = []
 
-
+#Input gene - disease ID association data
 while True:
     association_line = f_association.readline()
     if not association_line:break
@@ -34,6 +39,7 @@ while True:
     Association_Gene.append(str(new_association_line[0]).replace('"','').strip())
     Association_DB_ID.append(str(new_association_line[1]).strip())
 
+#Input disease MeSH, disease ID data
 while True:
     node_line = f_Node.readline()
     if not node_line:break
@@ -42,6 +48,7 @@ while True:
     Node_MeSH_ID.append(str(new_node_line[0]).strip())
     Node_DB_ID.append(str(new_node_line[1]).strip())
 
+#Input uniprot ID, association ID, Gene data
 while True:
     info_line = f_Info.readline()
     if not info_line:break
@@ -51,64 +58,90 @@ while True:
     Info_Uniprot_Accession.append(str(new_info_line[1]).replace('"','').strip())
     Info_Uniprot_Gene.append(new_info_line[5].replace('"','').strip())
 
-
 print("Input data")
 
 new_MeSH_ID = []
 new_Gene_ID = []
 new_DB_ID = []
 
+# [DisGeNet MeSH disease id에 Gene ID mapping]
+cnt = 1
+
 for node_db_id in Node_DB_ID:
 
-    for association_db_id in Association_DB_ID:
+    print(str("Input DB ID: ") + str(node_db_id))
+    print(str("Input data cnt: ") + str(cnt))
 
-        if (str(node_db_id) == str(association_db_id)):
+    if str(node_db_id) in Association_DB_ID:
 
-            new_Gene_ID.append(Association_Gene[Association_DB_ID.index(association_db_id)])
-            new_MeSH_ID.append(Node_MeSH_ID[Node_DB_ID.index(node_db_id)])
-            new_DB_ID.append(str(node_db_id))
+        new_MeSH_ID.append(Node_MeSH_ID[Node_DB_ID.index(node_db_id)])
+        new_Gene_ID.append(Association_Gene[Association_DB_ID.index(node_db_id)])
+        new_DB_ID.append(str(node_db_id))
 
+    cnt = cnt + 1
 
+Data = str("MeSH_ID") + "\t" + str("DB_ID") + "\t" + str("Gene_ID") + "\n"
 
-Final_MeSH_ID = []
-Final_DB_ID = []
-Final_Gene = []
-Final_Uniprot_ID = []
-Final_Uniprot_Accession_ID = []
+DisGeNet_f = open(Output_gene_mapping_FilePath + Output_gene_mapping_FileName, 'w')
 
+for ai in range(0, len(new_MeSH_ID)):
 
-for new_gene_id in new_Gene_ID:
-
-    for info_uniprot_gene_id in Info_Uniprot_Gene:
-
-        if (str(new_gene_id) in str(info_uniprot_gene_id)):
-
-            Final_MeSH_ID.append(new_MeSH_ID[new_Gene_ID.index(new_gene_id)])
-            Final_DB_ID.append(new_DB_ID[new_Gene_ID.index(new_gene_id)])
-            Final_Gene.append(str(new_gene_id))
-            Final_Uniprot_ID.append(Info_Uniprot_ID[Info_Uniprot_Gene.index(info_uniprot_gene_id)])
-            Final_Uniprot_Accession_ID.append(Info_Uniprot_Accession[Info_Uniprot_Gene.index(info_uniprot_gene_id)])
-
-
-
-print(len(Final_MeSH_ID))
-print(len(Final_DB_ID))
-print(len(Final_Gene))
-print(len(Final_Uniprot_ID))
-print(len(Final_Uniprot_Accession_ID))
-
-#차후에 수정 가능
-Data = str("MeSH_ID") + "\t" + str("Gene") + "\t" + str("Uniprot_ID") + "\t" + str("Uniprot_Accession_ID") + "\n"
-
-DisGeNet_f = open(Output_FilePath + Output_FileName, 'w')
-
-for ai in range(0, len(Final_MeSH_ID)):
-
-    Data = Data + str(Final_MeSH_ID[ai]) \
-           + "\t" + str(Final_Gene[ai]) \
-           + "\t" + str(Final_Uniprot_ID[ai]) \
-           + "\t" + str(Final_Uniprot_Accession_ID[ai]) + "\n"
+    Data = Data + str(new_MeSH_ID[ai]) + "\t" + str(new_DB_ID[ai]) + "\t" + str(new_Gene_ID[ai]) + "\n"
 
 DisGeNet_f.write(Data)
 DisGeNet_f.close()
-print("write file")
+print("write MeSH ID - Gene data")
+
+
+
+
+# [DisGeNet MeSH - Gene 정보에 Uniprot ID, Accession ID mapping]
+
+f_Disease_Gene = open(DisGeNet_Disease_Gene_FilePath + DisGeNet_Disease_Gene_FileName, 'r')
+
+MeSH_ID = []
+Gene_ID = []
+
+Final_MeSH_ID = []
+Final_Gene_ID = []
+Final_Uniprot_ID = []
+Final_Uniprot_Accession = []
+
+num = 1
+
+while True:
+    disease_gene_line = f_Disease_Gene.readline()
+    if not disease_gene_line: break
+    new_disease_gene_line = disease_gene_line.split("\t")
+
+    MeSH_ID.append(new_disease_gene_line[0])
+    Gene_ID.append(new_disease_gene_line[2])
+
+for gene in Gene_ID:
+
+    print(str("Input DB ID: ") + str(gene))
+    print(str("Input data num: ") + str(num))
+
+    if str(gene) in Info_Uniprot_Gene:
+
+        Final_MeSH_ID.append(MeSH_ID[Gene_ID.index(gene)])
+        Final_Gene_ID.append(str(gene))
+        Final_Uniprot_ID.append(Info_Uniprot_ID[Info_Uniprot_Gene.index(gene)])
+        Final_Uniprot_Accession.append(Info_Uniprot_Accession[Info_Uniprot_Gene.index(gene)])
+
+        num = num + 1
+
+Final_Data = str("MeSH_ID") + "\t" + str("Gene_ID") + "\t" + str("Uniprot_ID") + "\t" + str("Uniprot_Accession_ID") + "\n"
+
+Final_DisGeNet_f = open(Output_FilePath + Output_FileName, 'w')
+
+for bi in range(0, len(Final_MeSH_ID)):
+
+    Final_Data = Final_Data + str(Final_MeSH_ID[bi]) + "\t" + str(Final_Gene_ID[bi]) + "\t" + str(Final_Uniprot_ID[bi]) + "\t" + str(Final_Uniprot_Accession[bi]) + "\n"
+
+Final_DisGeNet_f.write(Final_Data)
+Final_DisGeNet_f.close()
+
+print("write final file")
+
+
