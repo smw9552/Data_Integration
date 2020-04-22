@@ -1,12 +1,12 @@
-CTD_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
+CTD_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
 CTD_FileName = "CTD_diseases_pathways.txt"
 
 #Uniprot_Info_FilePath = "C:\\Users\\Seomyungwon\\Desktop\\FileSplitTest\\Uniprot\\"
 
-Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
+Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
 Info_FileName = "Uniprot_Protein_all_Info.txt"
 
-OutputFilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
+OutputFilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
 OutputFileName = "Disease_Gene_Protein_CTD.txt"
 
 

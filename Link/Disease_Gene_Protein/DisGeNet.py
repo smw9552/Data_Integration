@@ -1,13 +1,13 @@
-DisGeNet_Association_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
+DisGeNet_Association_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
 DisGeNet_Association_FileName = "DisGeNet_Gene-DB_ID.txt"
 
-DisGeNet_Node_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
+DisGeNet_Node_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
 DisGeNet_Node_FileName = "DisGeNet_Disease_Node.txt"
 
-Uniprot_Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
+Uniprot_Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data_processing\\"
 Uniprot_Info_FileName = "Uniprot_Protein_all_Info.txt"
 
-Output_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
+Output_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data_processing\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
 Output_FileName = "Disease_Gene_Protein_DisGeNet.txt"
 
 
