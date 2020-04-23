@@ -14,7 +14,7 @@ Uniprot_Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Le
 Uniprot_Info_FileName = "Uniprot_Protein_all_Info.txt"
 
 Output_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
-Output_FileName = "Disease_Gene_Protein_DisGeNet.txt"
+Output_FileName = "Disease_Gene_Protein_DisGeNet_new.txt"
 
 f_association = open(DisGeNet_Association_FilePath + DisGeNet_Association_FileName, 'r')
 f_Node = open(DisGeNet_Node_FilePath + DisGeNet_Node_FileName, 'r')
@@ -119,14 +119,16 @@ for gene in Gene_ID:
     print(str("Input DB ID: ") + str(gene))
     print(str("Input data num: ") + str(num))
 
-    if str(gene) in Info_Uniprot_Gene:
+    for Info_gene in Info_Uniprot_Gene:
 
-        Final_MeSH_ID.append(str(MeSH_ID[Gene_ID.index(gene)]).strip())
-        Final_Gene_ID.append(str(gene.strip()))
-        Final_Uniprot_ID.append(str(Info_Uniprot_ID[Info_Uniprot_Gene.index(gene)]).strip())
-        Final_Uniprot_Accession.append(str(Info_Uniprot_Accession[Info_Uniprot_Gene.index(gene)]).strip())
+        if (str(gene)) in Info_gene:
 
-        num = num + 1
+            Final_MeSH_ID.append(str(MeSH_ID[Gene_ID.index(gene)]).strip())
+            Final_Gene_ID.append(str(gene.strip()))
+            Final_Uniprot_ID.append(str(Info_Uniprot_ID[Info_Uniprot_Gene.index(Info_gene)]).strip())
+            Final_Uniprot_Accession.append(str(Info_Uniprot_Accession[Info_Uniprot_Gene.index(Info_gene)]).strip())
+
+    num = num + 1
 
 Final_Data = str("MeSH_ID") + "\t" + str("Gene_ID") + "\t" + str("Uniprot_ID") + "\t" + str("Uniprot_Accession_ID") + "\n"
 
@@ -140,5 +142,3 @@ Final_DisGeNet_f.write(Final_Data)
 Final_DisGeNet_f.close()
 
 print("write final file")
-
-
