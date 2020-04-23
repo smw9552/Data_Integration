@@ -2,10 +2,10 @@ CTD_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper
 CTD_FileName = "CTD_diseases_pathways.txt"
 
 Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Pathway_Protein\\Data\\"
-Info_FileName = "Uniprot_Protein_HUMAN_Info.txt"
+Info_FileName = "Uniprot_Protein_all_Info.txt"
 
 OutputFilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Pathway_Protein\\"
-OutputFileName = "Disease_Pathway_Protein_CTD_HUMAN.txt"
+OutputFileName = "Disease_Pathway_Protein_CTD_new.txt"
 
 f_CTD = open(CTD_FilePath + CTD_FileName, "r")
 f_Info = open(Info_FilePath + Info_FileName, "r")
