@@ -72,11 +72,13 @@ for node_db_id in Node_DB_ID:
     print(str("Input DB ID: ") + str(node_db_id))
     print(str("Input data cnt: ") + str(cnt))
 
-    if str(node_db_id) in Association_DB_ID:
+    for association_id in Association_DB_ID:
 
-        new_MeSH_ID.append(str(Node_MeSH_ID[Node_DB_ID.index(node_db_id)]).strip())
-        new_Gene_ID.append(str(Association_Gene[Association_DB_ID.index(node_db_id)]).strip())
-        new_DB_ID.append(str(node_db_id).strip())
+        if str(node_db_id) == str(association_id):
+
+            new_MeSH_ID.append(str(Node_MeSH_ID[Node_DB_ID.index(node_db_id)]).strip())
+            new_Gene_ID.append(str(Association_Gene[Association_DB_ID.index(association_id)]).strip())
+            new_DB_ID.append(str(node_db_id).strip())
 
     cnt = cnt + 1
 
