@@ -4,8 +4,8 @@ CTD_FileName = "CTD_diseases_pathways.txt"
 Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Pathway_Protein\\Data\\"
 Info_FileName = "Uniprot_Protein_all_Info.txt"
 
-OutputFilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Pathway_Protein\\"
-OutputFileName = "Disease_Pathway_Protein_CTD_new.txt"
+OutputFilePath = "C:\\Users\\Seomyungwon\\Desktop\\Network_Temp\\Disease_Pathway_Protein\\CTD\\"
+#OutputFileName = "Disease_Pathway_Protein_CTD_new.txt"
 
 f_CTD = open(CTD_FilePath + CTD_FileName, "r")
 f_Info = open(Info_FilePath + Info_FileName, "r")
@@ -83,9 +83,53 @@ print(len(Final_Uniprot_ID))
 print(len(Final_Uniprot_Accession))
 
 Data = str("MeSH_ID") + "\t" + str("Pathway_Name") + "\t" + str("Pathway_ID")  + "\t" + str("Uniprot_ID") + "\t" + str("Uniprot_Accession_ID") + "\n"
+#CTD_f = open(OutputFilePath + OutputFileName, 'w')
 
-CTD_f = open(OutputFilePath + OutputFileName, 'w')
+# 파일 작성할 때 단위별로 작성 될 수 있도록 rule 추가 필요
 
+n = 100000
+file_cnt = 1
+
+Result_Final_MeSH_ID = [Final_MeSH_ID[i * n:(i+1) * n] for i in range((len(Final_MeSH_ID) + n - 1) // n)]
+Result_Final_Disease_Name = [Final_Disease_Name[i * n:(i+1) * n] for i in range((len(Final_Disease_Name) + n - 1) // n)]
+Result_Final_Pathway_Name = [Final_Pathway_Name[i * n:(i+1) * n] for i in range((len(Final_Pathway_Name) + n - 1) // n)]
+Result_Final_Pathway_ID = [Final_Pathway_ID[i * n:(i+1) * n] for i in range((len(Final_Pathway_ID) + n - 1) // n)]
+Result_Final_Gene = [Final_Gene[i * n:(i+1) * n] for i in range((len(Final_Gene) + n - 1) // n)]
+Result_Final_Uniprot_ID = [Final_Uniprot_ID[i * n:(i+1) * n] for i in range((len(Final_Uniprot_ID) + n - 1) // n)]
+Result_Final_Uniprot_Accession = [Final_Uniprot_Accession[i * n:(i+1) * n] for i in range((len(Final_Uniprot_Accession) + n - 1) // n)]
+
+
+for ai in range(0, len(Result_Final_MeSH_ID)):
+
+    Temp_Final_MeSH_ID = Result_Final_MeSH_ID[ai]
+    Temp_Final_Disease_Name = Result_Final_Disease_Name[ai]
+    Temp_Final_Pathway_Name = Result_Final_Pathway_Name[ai]
+    Temp_Final_Pathway_ID = Result_Final_Pathway_ID[ai]
+    Temp_Final_Gene = Result_Final_Gene[ai]
+    Temp_Final_Uniprot_ID = Result_Final_Uniprot_ID[ai]
+    Temp_Final_Uniprot_Accession = Result_Final_Uniprot_Accession[ai]
+
+    for bi in range(0, Temp_Final_MeSH_ID):
+
+        Data = Data + str(Temp_Final_MeSH_ID[bi]) + "\t" \
+               + str(Temp_Final_Pathway_Name[bi]) + "\t" \
+               + str(Temp_Final_Pathway_ID[bi]) + "\t" \
+               + str(Temp_Final_Uniprot_ID[bi]) + "\t" \
+               + str(Temp_Final_Uniprot_Accession[bi]) + "\n"
+
+    OutputFileName = str("Disease_Pathway_Protein_CTD_new" + str("_") + str(file_cnt) + ".txt")
+
+    file_cnt = file_cnt + 1
+
+    CTD_f = open(OutputFilePath + OutputFileName, 'w')
+    CTD_f.write(Data)
+    CTD_f.close()
+    print("Write file cnt: " + str(file_cnt))
+
+    Data = str("MeSH_ID") + "\t" + str("Pathway_Name") + "\t" + str("Pathway_ID") + "\t" + str("Uniprot_ID") + "\t" + str("Uniprot_Accession_ID") + "\n"
+
+
+"""
 for ai in range(0, len(Final_MeSH_ID)):
     Data = Data + str(Final_MeSH_ID[ai]) \
            + "\t" + str(Final_Pathway_Name[ai]) \
@@ -96,3 +140,4 @@ for ai in range(0, len(Final_MeSH_ID)):
 CTD_f.write(Data)
 CTD_f.close()
 print("write file")
+"""

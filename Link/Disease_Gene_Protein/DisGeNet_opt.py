@@ -13,7 +13,7 @@ DisGeNet_Disease_Gene_FileName = "Disease_Gene_DisGeNet.txt"
 Uniprot_Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\Data\\"
 Uniprot_Info_FileName = "Uniprot_Protein_all_Info.txt"
 
-Output_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_merge\\Link\\Disease_Gene_Protein\\"
+Output_FilePath = "C:\\Users\\Seomyungwon\\Desktop\\Network_Temp\\Disease_Gene_Protein\\DisGeNet\\"
 Output_FileName = "Disease_Gene_Protein_DisGeNet_new.txt"
 
 f_association = open(DisGeNet_Association_FilePath + DisGeNet_Association_FileName, 'r')
