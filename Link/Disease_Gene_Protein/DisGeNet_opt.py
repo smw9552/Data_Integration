@@ -136,6 +136,10 @@ Final_Data = str("MeSH_ID") + "\t" + str("Gene_ID") + "\t" + str("Uniprot_ID") +
 
 Final_DisGeNet_f = open(Output_FilePath + Output_FileName, 'w')
 
+
+## 파일 쓰는 부분에서 분할 작성 작업이 이루어져야함
+
+
 for bi in range(0, len(Final_MeSH_ID)):
 
     Final_Data = Final_Data + str(Final_MeSH_ID[bi]).strip()+ "\t" + str(Final_Gene_ID[bi]).strip() + "\t" + str(Final_Uniprot_ID[bi]).strip() + "\t" + str(Final_Uniprot_Accession[bi]).strip() + "\n"
