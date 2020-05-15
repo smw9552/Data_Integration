@@ -109,7 +109,7 @@ for ai in range(0, len(Result_Final_MeSH_ID)):
     Temp_Final_Uniprot_ID = Result_Final_Uniprot_ID[ai]
     Temp_Final_Uniprot_Accession = Result_Final_Uniprot_Accession[ai]
 
-    for bi in range(0, Temp_Final_MeSH_ID):
+    for bi in range(0, len(Temp_Final_MeSH_ID)):
 
         Data = Data + str(Temp_Final_MeSH_ID[bi]) + "\t" \
                + str(Temp_Final_Pathway_Name[bi]) + "\t" \

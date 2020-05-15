@@ -215,7 +215,7 @@ Data_2 = str("NPT_ID") + "\t" + str("Uniprot_ID") + "\t" + str("Uniprot_Accessio
 
 print(str("new_NPASS_NPT_ID: ") + str(len(new_NPASS_NPT_ID)))
 print(str("new_NPT_Uniprot_id: ") + str(len(new_NPT_Uniprot_ID)))
-print(str("new_NPT_Uniprot_Accession: ")) + str(len(new_NPT_Uniprot_Accession))
+print(str("new_NPT_Uniprot_Accession: ") + str(len(new_NPT_Uniprot_Accession)))
 print(str("NPASS_Activity_type: ") + str(len(new_NPASS_activity_type)))
 print(str("NPASS_Activity_relation: ") + str(len(new_NPASS_activity_relation)))
 print(str("NPASS_Activity_value: ") + str(len(new_NPASS_activity_value)))
