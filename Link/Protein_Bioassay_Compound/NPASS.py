@@ -8,8 +8,8 @@ NPASS_Info_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Leve
 NPASS_Info_FileName = "NPASS_activities_filtered_final.txt"
 
 Output_FilePath = "C:\\Users\\Seomyungwon\\Dropbox\\Seomyungwon\\#Multi_Level_Hyper_Network\\#Data\\DB_data_process\\NPASS\\"
-Output_FileName_NPC = "#NPC_Mapping_output.txt"
-Output_FileName_NPT = "#NPT_Mapping_output.txt"
+Output_FileName_NPC = "#NPC_Mapping_output_new.txt"
+Output_FileName_NPT = "#NPT_Mapping_output_new.txt"
 
 
 f_NPT_Uniprot = open(NPT_Uniprot_FilePath + NPT_Uniprot_FileName, 'r')
@@ -205,6 +205,24 @@ for npass_npt_id in NPASS_NPT_ID:
             new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPC_ID.index(npass_npc_id)]))
             new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPC_ID.index(npass_npc_id)]))
 
+        else:
+
+            new_NPASS_NPT_ID.append(str(npass_npt_id))
+            new_NPT_Uniprot_ID.append(NPT_Uniprot_ID[NPT_ID.index(npt_id)])
+            new_NPT_Uniprot_Accession.append(NPT_Uniprot_Accession[NPT_ID.index(npt_id)])
+            new_NPASS_activity_type.append(str(NPASS_activity_type[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_activity_relation.append(str(NPASS_activity_relation[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_activity_value.append(str(NPASS_activity_value[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_activity_units.append(str(NPASS_activity_units[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_activity_relation_value.append(str(NPASS_activity_relation_value[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_assay_organism.append(str(NPASS_assay_organism[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_assay_tax_id.append(str(NPASS_assay_tax_id[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_assay_strain.append(str(NPASS_assay_strain[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_assay_tissue.append(str(NPASS_assay_tissue[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_assay_cell_type.append(str(NPASS_assay_cell_type[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPC_ID.index(npass_npc_id)]))
+            new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPC_ID.index(npass_npc_id)]))
+
     cnt_2 = cnt_2 + 1
 
 NPASS_NPT_f = open(Output_FilePath + Output_FileName_NPT, 'w')
@@ -236,6 +254,6 @@ for bi in range(0, len(new_NPASS_NPT_ID)):
            + str(new_NPASS_assay_tax_id[bi]) + "\t" + str(new_NPASS_assay_strain[bi]) + "\t" + str(new_NPASS_assay_tissue[bi]) + "\t" + str(new_NPASS_assay_cell_type[bi]) + "\t" \
            + str(new_NPASS_ref_id[bi]) + "\t" + str(new_NPASS_ref_id_type[bi]) + "\n"
 
-NPASS_NPT_f.write(Data)
+NPASS_NPT_f.write(Data_2)
 NPASS_NPT_f.close()
 print("write NPT-Uniprot mapping data")
