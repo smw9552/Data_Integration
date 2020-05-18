@@ -99,6 +99,7 @@ while True:
 
 print("read data")
 
+"""
 cnt_1 = 1
 
 for npass_npc_id in NPASS_NPC_ID:
@@ -159,6 +160,7 @@ NPASS_NPC_f.write(Data)
 NPASS_NPC_f.close()
 print("write NPC-ChEMBL mapping data")
 
+"""
 
 new_NPT_Uniprot_ID = []
 new_NPT_Uniprot_Accession = []
@@ -192,36 +194,36 @@ for npass_npt_id in NPASS_NPT_ID:
             new_NPASS_NPT_ID.append(str(npass_npt_id))
             new_NPT_Uniprot_ID.append(NPT_Uniprot_ID[NPT_ID.index(npt_id)])
             new_NPT_Uniprot_Accession.append(NPT_Uniprot_Accession[NPT_ID.index(npt_id)])
-            new_NPASS_activity_type.append(str(NPASS_activity_type[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_relation.append(str(NPASS_activity_relation[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_value.append(str(NPASS_activity_value[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_units.append(str(NPASS_activity_units[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_relation_value.append(str(NPASS_activity_relation_value[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_organism.append(str(NPASS_assay_organism[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_tax_id.append(str(NPASS_assay_tax_id[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_strain.append(str(NPASS_assay_strain[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_tissue.append(str(NPASS_assay_tissue[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_cell_type.append(str(NPASS_assay_cell_type[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPC_ID.index(npass_npt_id)]))
+            new_NPASS_activity_type.append(str(NPASS_activity_type[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_relation.append(str(NPASS_activity_relation[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_value.append(str(NPASS_activity_value[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_units.append(str(NPASS_activity_units[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_relation_value.append(str(NPASS_activity_relation_value[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_organism.append(str(NPASS_assay_organism[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_tax_id.append(str(NPASS_assay_tax_id[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_strain.append(str(NPASS_assay_strain[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_tissue.append(str(NPASS_assay_tissue[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_cell_type.append(str(NPASS_assay_cell_type[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPT_ID.index(npass_npt_id)]))
 
         if str(npass_npt_id) != str(npt_id):
 
             new_NPASS_NPT_ID.append(str(npass_npt_id))
             new_NPT_Uniprot_ID.append(NPT_Uniprot_ID[NPT_ID.index(npt_id)])
             new_NPT_Uniprot_Accession.append(NPT_Uniprot_Accession[NPT_ID.index(npt_id)])
-            new_NPASS_activity_type.append(str(NPASS_activity_type[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_relation.append(str(NPASS_activity_relation[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_value.append(str(NPASS_activity_value[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_units.append(str(NPASS_activity_units[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_activity_relation_value.append(str(NPASS_activity_relation_value[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_organism.append(str(NPASS_assay_organism[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_tax_id.append(str(NPASS_assay_tax_id[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_strain.append(str(NPASS_assay_strain[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_tissue.append(str(NPASS_assay_tissue[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_assay_cell_type.append(str(NPASS_assay_cell_type[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPC_ID.index(npass_npt_id)]))
-            new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPC_ID.index(npass_npt_id)]))
+            new_NPASS_activity_type.append(str(NPASS_activity_type[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_relation.append(str(NPASS_activity_relation[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_value.append(str(NPASS_activity_value[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_units.append(str(NPASS_activity_units[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_activity_relation_value.append(str(NPASS_activity_relation_value[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_organism.append(str(NPASS_assay_organism[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_tax_id.append(str(NPASS_assay_tax_id[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_strain.append(str(NPASS_assay_strain[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_tissue.append(str(NPASS_assay_tissue[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_assay_cell_type.append(str(NPASS_assay_cell_type[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPT_ID.index(npass_npt_id)]))
+            new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPT_ID.index(npass_npt_id)]))
 
     cnt_2 = cnt_2 + 1
 
