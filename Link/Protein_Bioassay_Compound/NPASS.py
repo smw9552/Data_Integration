@@ -206,7 +206,7 @@ for npass_npt_id in NPASS_NPT_ID:
             new_NPASS_assay_cell_type.append(str(NPASS_assay_cell_type[NPASS_NPT_ID.index(npass_npt_id)]))
             new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPT_ID.index(npass_npt_id)]))
             new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPT_ID.index(npass_npt_id)]))
-
+    """
         if str(npass_npt_id) != str(npt_id):
 
             new_NPASS_NPT_ID.append(str(npass_npt_id))
@@ -224,6 +224,7 @@ for npass_npt_id in NPASS_NPT_ID:
             new_NPASS_assay_cell_type.append(str(NPASS_assay_cell_type[NPASS_NPT_ID.index(npass_npt_id)]))
             new_NPASS_ref_id.append(str(NPASS_ref_id[NPASS_NPT_ID.index(npass_npt_id)]))
             new_NPASS_ref_id_type.append(str(NPASS_ref_id_type[NPASS_NPT_ID.index(npass_npt_id)]))
+            """
 
     cnt_2 = cnt_2 + 1
 
